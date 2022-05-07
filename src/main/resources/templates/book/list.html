@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+<h1>Home</h1>
+<form>
+    Tìm kiếm sách:
+    <input name="search" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
+<br/>
+<a href="/create-book">Thêm mới sách  </a>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th>Tên sách </th>
+        <th>Giá thành</th>
+        <th>Tác giả</th>
+        <th>Thể loại</th>
+        <th>Bìa sách</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="b : ${book}">
+        <tr>
+            <td th:text="${b.name}"></td>
+            <td th:text="${b.price}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:if="${b.category}" th:text="${b.category.name}"></td>
+            <td th:unless="${b.category}"></td>
+            <td><img th:src="${b.image}" width="50" height="50"></td>
+            <td><a th:href="@{/edit-book/__${b.id}__ }">Chỉnh sửa</a></td>
+            <td><a th:href="@{/delete-book/__${b.id}__ }">Xóa</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:if="${book.hasPrevious()}" th:href="@{'/'(page=${book.number - 1})}">previous</a>
+    <span th:text="${book.number + 1}"></span>/<span th:text="${book.totalPages}"></span>
+    <a th:if="${book.hasNext()}" th:href="@{'/'(page=${book.number + 1})}">next</a>
+
+</div>
+<br>
+<a href="/category">Danh sách thể loại </a><br>
+<br>
+<a href="/logout">Đăng xuất</a><br>
+</body>
+</html>

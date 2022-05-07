@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Book</title>
+</head>
+<body>
+<h1>Xóa sách</h1>
+<h3 style="color: red;font-family: sans-serif;">Bạn có chắc chắn muốn xóa?</h3>
+<div id="form">
+    <form th:action="@{/delete-book}" th:object="${book}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table id="book">
+            <tr>
+                <td>Tên sách:</td>
+                <td th:text="${book.name}"></td>
+            </tr>
+            <tr>
+                <td>Giá thành:</td>
+                <td th:text="${book.price}"></td>
+            </tr>
+            <tr>
+                <td>Tác giả:</td>
+                <td th:text="${book.author}"></td>
+            </tr>
+            <tr>
+                <td>Thể loại:</td>
+                <td th:text="${book.category.name}"></td>
+            </tr>
+            <tr>
+                <td>Bìa sách:</td>
+                <td><img th:src="${book.image}" width="50" height="50"></td>            </tr>
+            <tr>
+                <td colspan="2" ><input type="submit" value="Xóa"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<a href="/">Trở về</a>
+</body>
+</html>
