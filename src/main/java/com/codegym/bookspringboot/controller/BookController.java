@@ -59,7 +59,7 @@ public class BookController {
     }
     @GetMapping("/create-book")
     public ModelAndView showFormCreate(){
-        ModelAndView modelAndView = new ModelAndView("/book/create");
+        ModelAndView modelAndView = new ModelAndView("book/create");
         modelAndView.addObject("book", new BookForm());
         return modelAndView;
     }
