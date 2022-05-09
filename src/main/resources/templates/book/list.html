@@ -53,12 +53,12 @@
                 <td><img th:src="${b.image}" width="50" height="50"></td>
 
                 <td>
-                    <a th:href="@{/edit-book/__${b.id}__ }" class="btn btn-info btn-lg">
+                    <a th:href="@{/edit-book/__${b.id}__ }" class="btn btn-info btn-primary">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                 </td>
 
-                <td> <a th:href="@{/delete-book/__${b.id}__ }" class="btn btn-info btn-lg">
+                <td> <a th:href="@{/delete-book/__${b.id}__ }" class="btn btn-info btn-danger">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
                 </td>

@@ -102,7 +102,7 @@ public class CategoryController {
 
         ModelAndView modelAndView = new ModelAndView("category/view");
         modelAndView.addObject("category", categoryOptional.get());
-        modelAndView.addObject("books", books);
+        modelAndView.addObject("book", books);
         return modelAndView;
     }
 
